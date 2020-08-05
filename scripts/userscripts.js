@@ -4,6 +4,7 @@ var coursepage = 1;
     jQuery(document).ready(function () {
         usercookie=getCookie("userQueue");
 		if(usercookie.length > 0){
+			usercookie=JSON.parse(getCookie("userQueue"));
 			 jQuery("#slidercontainer").append(getcoursehtml("My Queue",usercookie));
 		}
 		getmorecourses(coursepage);
@@ -34,9 +35,9 @@ var coursepage = 1;
 				setCookie("userQueue","",0);
 				setCookie("userQueue",JSON.stringify(usercookie),1);
 			}
-			usercookie=getCookie("userQueue");
+			usercookie=JSON.parse(getCookie("userQueue"));
 			console.log(usercookie);
-			jQuery("#slidercontainer").prepend(getcoursehtml("My Queue",JSON.parse(usercookie)));
+			jQuery("#slidercontainer").prepend(getcoursehtml("My Queue",usercookie));
 			jQuery('.slickslidercls:first').slick({
 				  dots: true,
 				  infinite: false,
