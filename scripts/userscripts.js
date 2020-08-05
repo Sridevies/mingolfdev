@@ -4,8 +4,8 @@ var coursepage = 1;
     jQuery(document).ready(function () {
         usercookie=getCookie("userQueue");
 		if(usercookie.length > 0){
-			usercookie=JSON.parse(getCookie("userQueue"));
-			 jQuery("#slidercontainer").append(getcoursehtml("My Queue",usercookie));
+			 usercookie=JSON.parse(getCookie("userQueue"));
+			 jQuery("#slidercontainer").append(getcoursehtml("My Queue",usercookie,'userqueue'));
 		}
 		getmorecourses(coursepage);
 
@@ -37,7 +37,8 @@ var coursepage = 1;
 			}
 			usercookie=JSON.parse(getCookie("userQueue"));
 			console.log(usercookie);
-			jQuery("#slidercontainer").prepend(getcoursehtml("My Queue",usercookie));
+			jQuery('.userqueue').remove();
+			jQuery("#slidercontainer").prepend(getcoursehtml("My Queue",usercookie,""));
 			jQuery('.slickslidercls:first').slick({
 				  dots: true,
 				  infinite: false,
@@ -46,8 +47,29 @@ var coursepage = 1;
 				  slidesToScroll: 3,
 				  responsive: [{breakpoint: 1024,settings: {slidesToShow: 3,slidesToScroll: 3,infinite: true,dots: true}},{breakpoint: 980,settings: {slidesToShow: 2,slidesToScroll: 2}},{breakpoint:600,settings: {slidesToShow: 1,slidesToScroll: 1}}]
 			}); 
+		jQuery(this).toggleClass("selected");
 		})
-			jQuery(this).toggleClass("selected");
+		jQuery(".fa-minus-circle").click(function(){
+				usercookie.map
+					var childarr=usercookie.filter(function(d){ return d.id=="253"});
+					usercookie.splice(childarr.indexOf(g[0]),1);
+					setCookie("userQueue","",0);
+					if(usercookie.length > 0){
+						setCookie("userQueue",JSON.stringify(usercookie),1);
+						jQuery('.userqueue').remove();
+						jQuery("#slidercontainer").prepend(getcoursehtml("My Queue",usercookie,""));
+						jQuery('.slickslidercls:first').slick({
+							  dots: true,
+							  infinite: false,
+							  speed: 300,
+							  slidesToShow: 3,
+							  slidesToScroll: 3,
+							  responsive: [{breakpoint: 1024,settings: {slidesToShow: 3,slidesToScroll: 3,infinite: true,dots: true}},{breakpoint: 980,settings: {slidesToShow: 2,slidesToScroll: 2}},{breakpoint:600,settings: {slidesToShow: 1,slidesToScroll: 1}}]
+						});
+					}
+
+		})
+			
 
     })
 
@@ -80,7 +102,7 @@ var coursepage = 1;
 		})
 		console.log(courses);
 		jQuery.each(courses,function(i,d){
-				tobeappended+=getcoursehtml(i,d);
+				tobeappended+=getcoursehtml(i,d,"");
         })
 
                     //console.log(tobeappended);
@@ -91,20 +113,22 @@ var coursepage = 1;
    
 
     }
-	function getcoursehtml(i,d){
+	function getcoursehtml(i,d,type){
 		var coursehtml="";
+		var iconcls=type == "userqueue" ? "fa-minus-circle":"fa-star";
+		
 		if(d.length > 0){
-			coursehtml+='<div class="courseheader">'+i+'</div>';
+			coursehtml+='<div class="courseheader '+type+'">'+i+'</div>';
 		}				 
-		coursehtml+='<div class="slickslidercls">';
+		coursehtml+='<div class="slickslidercls '+type+'">';
 
 		jQuery.each(d,function(m,n){
 			 coursehtml+= '<div class="slickchilds">'
 			 							if(usercookie.length > 0){
 											var cls=usercookie.map(function(e){return e.id}).indexOf(n.id) != -1 ? "selected": "";
-											coursehtml+='<i class="fa fa-star '+cls+'"  aria-hidden="true"></i>'
+											coursehtml+='<i class="fa '+iconcls+' '+cls+'"  aria-hidden="true"></i>'
 										}else{
-													coursehtml+='<i class="fa fa-star" aria-hidden="true"></i>'
+													coursehtml+='<i class="fa '+iconcls+'" aria-hidden="true"></i>'
 										}
 									  
 									  coursehtml+= '<img courseid="' + n.id+ '"  src="' + n.image+ '" class="imagetypecls"  />'
