@@ -101,7 +101,8 @@ var coursepage = 1;
 		jQuery.each(d,function(m,n){
 			 coursehtml+= '<div class="slickchilds">'
 			 							if(usercookie.length > 0){
-											coursehtml+='<i class="fa fa-star '+usercookie.map(function(e){return e.id}).indexOf(n.id) != -1 ? "selected": ""+'"  aria-hidden="true"></i>'
+											var cls=usercookie.map(function(e){return e.id}).indexOf(n.id) != -1 ? "selected": "";
+											coursehtml+='<i class="fa fa-star '+cls+'"  aria-hidden="true"></i>'
 										}else{
 													coursehtml+='<i class="fa fa-star" aria-hidden="true"></i>'
 										}
