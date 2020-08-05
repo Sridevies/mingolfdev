@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEV minigolf.io</title>
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<style>
+.banner{
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.banner-image {
+    background-position: top center;
+    background-size: cover;
+    min-height: 475px;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+	background-repeat: repeat; 
+	background-attachment: scroll;opacity: 1;
+}
+.title-border{
+border-bottom: 2px solid #eeeeee; width: 250px; margin: 0px auto;}
+#main  .product-info a {
+    color: inherit;
+    text-decoration: none;
+}
+.selectBtn{
+font-weight: bold;
+    width: 150px;
+    min-height: 0px;
+    padding: 12px 15px;
+    border: none;
+    background: #ef0202;
+    color: #ffffff;
+    top: auto;
+    box-shadow: #ba1a1a 0px 5px;
+	    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+.selectBtn:hover{
+    background:  #ff0000;
+	 color: #ffffff;
+    top: 2px;
+    box-shadow: #ba1a1a 0px 3px;
+	transform: translateY(4px);
+	transition:0.2s;
+	text-decoration:none;
+}
+.product-info a{color:#999999;}
+.product-info a:hover, .product-info a:focus {
+    text-decoration: none;
+    color: #0d5875;
+}
+.fa-caret-square-o-right{
+    font-size: 48px;
+    color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+    margin: -24px 0 0 -20px;
+	}
+</style>
+ </head>
+ <body>
+  <div id="content-wrapper">
+		<header>
+				<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+						<div class="container">
+								<a class="navbar-brand" href="https://dev.minigolf.io/">DEV minigolf.io</a>
+						</div>
+				</nav>
+		</header>
+		
+		<main id="main">
+			<div class="banner text-center">
+				<img src="https://dev.minigolf.io/wp-content/uploads/2020/06/logo-horizontal-300-x-1300.png" width="70%">
+				</div>
+			</div>
+
+			<section class="mt-4 mb-4">
+				<div class="container mt-4 text-center">
+						<div class="title">
+							<h1>Choose an Action</h1>
+							<div class="title-border"></div>
+						</div>
+
+						<div class="product-info mt-4"> 
+								<ul class="text-muted list-inline">
+										<li class="list-inline-item">
+											<a href="javascript:;">
+												<i class="fa fa-calendar" aria-hidden="true"></i>
+												<span class="sr-only">Posted on</span> June 9, 2020</a>
+										</li>
+										<li class="list-inline-item">
+											<a href="javascript:;">
+												<i class="fa fa-user"></i>
+												<span class="sr-only">Posted by</span> theadmin </a>
+										</li>				
+										<li class="list-inline-item"><i class="fa fa-edit"></i> <a class="post-edit-link" href="javascript:;">Edit</a></li>  
+							</ul>
+						</div>
+
+						<div class="product-content mb-4">
+							<a href="javascript:;">View Page</a>
+						</div>
+						
+						<div class="row ">
+							<div class="col-md-4 position-relative mb-3 mt-4">
+								<img src="https://dev.minigolf.io/wp-content/uploads/2020/06/animated-hurricane-cliparts-361-150x150.png">
+								<h3 class="mt-3">Hurricane</h3>
+								<a class="selectBtn mt-3" href="javascript:;">ADD ACTION</a>
+							</div>
+
+							<div class="col-md-4 position-relative mb-3 mt-4">
+								<img src="https://dev.minigolf.io/wp-content/uploads/2020/06/yTkaKdgTE1-150x150.gif">
+								<h3 class="mt-3">Snake</h3>
+								<a class="selectBtn mt-3" href="javascript:;">ADD ACTION</a>
+							</div>
+
+							<div class="col-md-4 position-relative mb-3 mt-4">
+								<img src="https://dev.minigolf.io/wp-content/uploads/2020/06/mill-clipart-161-150x150.png">
+								<h3 class="mt-3">Windmill</h3>
+								<a class="selectBtn mt-3" href="javascript:;">ADD ACTION</a>
+							</div>
+						</div>
+
+						<div class="row ">
+							<div class="col-md-12 position-relative mb-3 mt-4">
+								<h3 class="mt-3 coursename"></h3>
+								<div class="d-block">
+									<div class="position-absolute"></div>								
+									<i class="fa fa-caret-square-o-right"></i>
+									<iframe id="coursePreview" onload="jQuery(this).height(jQuery(this).width())" src="#" style="width: 60%; height: 600px;"></iframe>
+								</div>								
+							</div>
+						</div>
+
+
+				</div>
+			</section>
+		</main>
+
+  </div>
+ </body>
+  <script type="text/javascript" src="https://dev.minigolf.io/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp"></script>
+   <script type="text/javascript">
+ 
+jQuery(document).ready(function(){
+var name=getParameterByName('Name');;
+var id=getParameterByName('ID');
+jQuery(".coursename").text(name);
+jQuery("#coursePreview").attr("src","https://minigolf.io/3d/?mapurl=/wp-json/wp/v2/course/"+id+"");
+})
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+</script>
+</html>

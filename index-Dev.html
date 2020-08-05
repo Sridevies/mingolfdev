@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://dev.minigolf.io/wp-includes/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://dev.minigolf.io/wp-includes/css/userstyles.css">
+<link rel="stylesheet" type="text/css" href="https://dev.minigolf.io/wp-includes/css/slick/slick.css"/>
+
+<link rel="stylesheet" type="text/css" href="https://dev.minigolf.io/wp-includes/css/slick/slick-theme.css"/>
+<script type="text/javascript" src="https://dev.minigolf.io/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp"></script>
+ <script type="text/javascript" src="https://dev.minigolf.io/wp-includes/css/slick/slick.min.js"></script>
+ <script type="text/javascript" src="https://dev.minigolf.io/wp-includes/css/slick/userscripts.js"></script>
+			<section class="mt-4 mb-4">
+				<div class="container mt-4 text-center">
+						<div class="title">
+							<h1>Choose Your Course</h1>
+							<div class="title-border"></div>
+						</div>
+
+						<div class="product-info mt-4"> 
+								<ul class="text-muted list-inline">
+										<li class="list-inline-item">
+											<a href="javascript:;">
+												<i class="fa fa-calendar" aria-hidden="true"></i>
+												<span class="sr-only">Posted on</span> June 9, 2020</a>
+										</li>
+										<li class="list-inline-item">
+											<a href="javascript:;">
+												<i class="fa fa-user"></i>
+												<span class="sr-only">Posted by</span> theadmin </a>
+										</li>				
+										<li class="list-inline-item"><i class="fa fa-edit"></i> <a class="post-edit-link" href="javascript:;">Edit</a></li>  
+							</ul>
+						</div>
+
+						<div class="product-content mb-4">
+							<h5>Select the course you want to play. Next you can add actions like windmills or donuts.</h5>
+						</div>
+						
+					
+					<div class="slickslidercls " id="usertemplates">
+						<div width="300px" height="600px" v-for="(item,index) in items">
+								<iframe v-bind:src="'https://minigolf.io/3d/?mapurl=https://dev.minigolf.io/wp-json/wp/v2/course/'+item.id" height="600px" width="300px"></iframe>
+								<h3 class="mt-3">{{item.title.rendered}}</h3>
+								<a class="selectBtn mt-3" v-bind:href="'choose-an-action/?Name='+item.title.rendered+'&ID='+item.id">SELECT</a>
+							</div>
+
+			</section>
+
+
+  </div>
+
+ 
+ 
+
