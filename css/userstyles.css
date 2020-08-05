@@ -148,6 +148,12 @@
 			right:0;
 			cursor:pointer;
 		}
+		.fa.fa-minus-circle{
+			position:absolute;
+			right:0;
+			cursor:pointer;
+			color:#ef0202;
+		}
 		.fa.fa-star.selected{
 			color:#ef0202;
 
