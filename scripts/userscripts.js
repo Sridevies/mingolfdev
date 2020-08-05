@@ -50,9 +50,9 @@ var coursepage = 1;
 		jQuery(this).toggleClass("selected");
 		})
 		jQuery(".fa-minus-circle").click(function(){
-				usercookie.map
+				
 					var childarr=usercookie.filter(function(d){ return d.id=="253"});
-					usercookie.splice(childarr.indexOf(g[0]),1);
+					usercookie.splice(usercookie.indexOf(childarr[0]),1);
 					setCookie("userQueue","",0);
 					if(usercookie.length > 0){
 						setCookie("userQueue",JSON.stringify(usercookie),1);
