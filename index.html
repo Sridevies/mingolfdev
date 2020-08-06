@@ -57,7 +57,7 @@
                 <h5>Select the course you want to play. Next you can add actions like windmills or donuts.</h5>
             </div>
           
-			<div id="slidercontainer">	
+			<div id="slidercontainer" v-cloak>	
 					<div v-for="(courseitems,index) in items" v-bind:key="index">
 							<div v-if="courseitems.length > 0" class="courseheader" >{{index}}</div>
 
