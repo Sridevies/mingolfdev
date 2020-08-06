@@ -186,3 +186,6 @@
 #slidercontainer{
 	padding:0 40px;
 }
+[v-cloak] {
+  display: none;
+}
