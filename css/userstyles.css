@@ -136,6 +136,8 @@
 				font-size: 24px;
 				margin: 5px;
 				font-weight: bold;
+			color: #000;
+    border-bottom: 4px solid #ef0202;
 		}
 		.slick-prev{
 			z-index:1;
