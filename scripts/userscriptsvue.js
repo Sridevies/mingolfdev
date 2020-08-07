@@ -36,11 +36,11 @@ var coursepage = 1;
 		})
 
 	})
-	var getcourses=getendpoint("https://dev.minigolf.io/wp-json/wp/v2/course/");
+	var getcourses=getendpoint("https://dev.minigolf.io/wp-json/wp/v2/course/?per_page=100");
 	getcourses.done(function(data,status){
 		jQuery.each(data,function(i,d){
 			jQuery.each(d.coursetype,function(k,l){ 
-				if(coursecollection[coursetypearr[l]].map(function(e){return e.title}).indexOf(d.image.guid) == -1){
+				if(coursecollection[coursetypearr[l]].map(function(e){return e.title}).indexOf(d.title.rendered) == -1){
 					var newimgobj={};
 					newimgobj.id=parseInt(d.id);
 					newimgobj.title=d.title.rendered;
