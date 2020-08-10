@@ -6,7 +6,7 @@ var coursepage = 1;
     jQuery(document).ready(function () {
 		
         var check_usercookie=getCookie("userQueue");
-		coursecollection["My Queue"]=[];
+		coursecollection["Playlist"]=[];
 		if(check_usercookie.length > 0){
 			 usercookie=JSON.parse(check_usercookie);
 			 //usercookie=JSON.parse('[{"id":"1139","title":"Racecar: Pro Le Mans","image":"https://dev.minigolf.io/wp-content/uploads/2020/07/11391440x1600-1.png"},{"id":"54","title":"The C","image":"https://dev.minigolf.io/wp-content/uploads/2020/05/541440x1600-1.png"},{"id":"897","title":"Smiley","image":"https://dev.minigolf.io/wp-content/uploads/2020/07/8971440x1600.png"},{"id":"57","title":"Tristo","image":"https://dev.minigolf.io/wp-content/uploads/2020/05/571440x1600-1.png"}]');
@@ -14,7 +14,7 @@ var coursepage = 1;
 			 //console.log(usercookie);
 			// cookieobj["My Queue"]=usercookie;
 				
-				coursecollection["My Queue"]=usercookie;
+				coursecollection["Playlist"]=usercookie;
 			//	console.log(coursecollection);
 			
 	  }
@@ -65,7 +65,7 @@ var vueobj=new Vue({
 						}else{
 							usercookie.unshift(data);
 						}
-						coursecollection["My Queue"]=usercookie;
+						coursecollection["Playlist"]=usercookie;
 						this.items = coursecollection;
 						this.usercookie = usercookie.map(function(e){return parseInt(e.id)});											
 						refreshSlider(0);
